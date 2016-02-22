@@ -1,0 +1,58 @@
+{
+  "name": "Random-Quote-Machine",
+  "version": "0.1.0",
+  "description": "FreeCodeCamp, Zipline Project, Random Quote Machine.",
+  "author": "Gilbert Smith",
+  "license": "MIT",
+  "homepage": "https://github.com/GJSmith3rd/FCC-Zipline-Random-Quote-Machine#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:GJSmith3rd/FCC-Zipline-Random-Quote-Machine.git"
+  },
+  "scripts": {
+    "init": "npm install",
+    "start": "app.js"
+  },
+  "bugs": {
+    "url": "https://github.com/GJSmith3rd/FCC-Zipline-Random-Quote-Machine/issues"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.8.0",
+    "del": "^1.2.0",
+    "eslint-stylish": "^0.2.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-copy": "0.0.2",
+    "gulp-cssnano": "^2.0.0",
+    "gulp-csso": "^1.0.0",
+    "gulp-filter": "^3.0.0",
+    "gulp-if": "^1.2.5",
+    "gulp-inject": "^1.5.0",
+    "gulp-jscs": "^1.6.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-less": "^3.0.3",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-nodemon": "^2.0.3",
+    "gulp-plumber": "^1.0.1",
+    "gulp-print": "^1.1.0",
+    "gulp-spawn": "^0.3.0",
+    "gulp-task-listing": "^1.0.1",
+    "gulp-uglify": "^1.2.0",
+    "gulp-uncss": "^1.0.4",
+    "gulp-useref": "^1.2.0",
+    "gulp-util": "^3.0.6",
+    "jquery": "^2.1.4",
+    "jshint-stylish": "^2.0.1",
+    "wiredep": "^2.2.2",
+    "yargs": "^3.15.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "compression": "^1.5.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "serve-favicon": "^2.3.0"
+  }
+}

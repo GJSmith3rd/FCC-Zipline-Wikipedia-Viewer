@@ -1,0 +1,630 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http- equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <!--The above 3 meta tags * must * come first in the head; any other head content must come * after * these tags -->
+
+  <!--Google Fonts-->
+  <!-- <link href='https://fonts.googleapis.com/css?family=Petrona|Orbitron:400,500,700,900' rel='stylesheet' type='text/css'> -->
+
+  <title>Pomodoro</title>
+
+  <meta application="Pomodoro Timer">
+  <meta name="description" content="A single page, pomodoro timer, app that utilizes D3.js, Bootstrap and Webworkers.">
+  <meta name="Author" content="Gilbert Joseph Smith III">
+  <meta name="Author" content="GJSmith3rd">
+  <meta name="Author" content="mobileCreature">
+
+
+
+
+  <!-- Favicon -->
+  <!-- <link rel="icon" href="http://i.imgur.com/fZpm3YM.jpg" /> -->
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css" />
+
+  <!-- Javascript for IE 5+, Firefox 5+  and Safari 2 media queries-->
+  <!-- <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script> -->
+
+  <!-- <script type='text/javascript' src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script> -->
+
+
+
+
+  <!-- jQuery injected scripts for local css or less -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lte IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+  <!--begin NAV-->
+
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+    <!--begin NAV container-->
+    <div class="container">
+
+      <!--begin NAVBAR header and collapsed navbar-->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.mobilecreature.com/#" target="_blank">
+          <ul class="nav">
+            <li><b>mobileCreature</b></li>
+          </ul>
+        </a>
+      </div>
+      <!--end NAVBAR header and collapsed navbar-->
+
+      <!--begin NAVBAR-->
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active">
+            <a href="http://www.mobilecreature.com/#" target="_blank">
+              <span class="glyphicon glyphicon-home" aria-hidden="true"></span><b> Home</b></a>
+          </li>
+          <li class="active">
+            <a href="http://www.mobilecreature.com/#about" target="_blank">
+              <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><b> About</b></a>
+          </li>
+          <li class="active">
+            <a href="http://www.mobilecreature.com/#portfolio" target="_blank">
+              <span class="glyphicon glyphicon-th" aria-hidden="true"></span><b> Portfolio</b></a>
+          </li>
+          <li class="active">
+            <a href="http://www.mobilecreature.com/#contact" target="_blank">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span><b> Contact</b></a>
+          </li>
+        </ul>
+      </div>
+      <!--end NAVBAR-->
+
+    </div>
+    <!--end NAV container-->
+
+  </nav>
+  <!-- end NAV -->
+
+  <!--JOBOTRON-->
+  <div class="container-fluid">
+
+
+    <div class="jumbotron jumbotron-success text-center">
+
+      <h1 id="head1">Pomodoro</h1>
+
+      <h3>
+        <span class="timer" id="resetTimer">25 min 00 sec</span>
+        <span class="break" id="resetBreak">5 min 00 sec</span>
+      </h3>
+
+      <h2 id="sessText">Start Session</h2>
+
+    </div>
+    <!--end jumbotron -->
+  </div>
+  <!--container-fluid -->
+
+
+  <!-- begin main container-->
+  <div class="container-fluid">
+
+    <!--begin page-wrapper-->
+    <div id="page-wrapper">
+
+      <!--Begin Main Controls-->
+      <div class="row text-center">
+        <div class="col-lg-12">
+          <!--begin pane-->
+          <div class="panel panel-success">
+
+            <!--begin panel-heading-->
+            <div class="panel-heading clickable">
+
+              <span class="pull-left clickable main-control"><i class="glyphicon glyphicon-chevron-up"></i></span>
+
+              <span class="pull-right clickable main-control"><i class="glyphicon glyphicon-chevron-up"></i></span>
+
+            </div>
+            <!--end panel-heading-->
+
+
+
+            <!--begin panel body-->
+            <div class="panel-body">
+
+              <h3 class="panel-title">RESET / PAUSE / RESUME</h3>
+              <h4>Default - 2 Sets - 3 Sessions - 1 Set Breaks (15 Minute) - 2 Session Breaks (5 Minute)</h4>
+
+            </div>
+            <!--end panel body-->
+
+
+
+            <!--begin panel footer-->
+            <div class="panel-footer">
+
+              <!--begin btn-group-->
+              <div class="btn-group btn-group-justified" role="group" aria-label="...">
+
+                <div class="btn-group" role="group">
+
+                  <button id="timer-reset" type="button" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                  </button>
+
+                </div>
+
+                <div class="btn-group" role="group">
+
+                  <button id="timer-pause" class="btn btn-danger btn-lg" type="button">
+                    <span class="glyphicon glyphicon-off"></span>
+                  </button>
+
+                </div>
+
+                <div id="reset" class="btn-group" role="group">
+
+                  <button id="timer-resume" type="button" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                  </button>
+
+                </div>
+
+              </div>
+              <!--end btn-group-->
+
+
+
+            </div>
+            <!--end panel body-->
+
+
+
+          </div>
+          <!--end panel-->
+        </div>
+        <!--end col-->
+      </div>
+      <!--end Main Controls row-->
+
+
+
+      <!--Begin Presets-->
+      <div class="row text-center">
+        <div class="col-lg-12">
+          <!--begin panel-->
+          <div class="panel panel-danger">
+
+            <!--begin panel-heading-->
+            <div class="panel-heading clickable">
+              <span class="pull-left clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+
+              <h3 class="panel-title">PRESETS</h3>
+
+              <span class="pull-right clickable panel-collapsed in"><i class="glyphicon glyphicon-chevron-up"></i></span>
+            </div>
+            <!--end panel-heading-->
+
+            <!--begin panel-body-->
+            <div class="panel-body">
+
+              <div class="row">
+
+                <div class="col-lg-3 col-md-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-xs-3">
+                          <i class="fa fa-hourglass-o fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                          <div class="huge">4</div>
+                          <div>Undergraduate</div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="#">
+                      <div class="panel-footer panel-footer-danger">
+                        <span class="pull-left">1 - 4 sets</span>
+                        <span class="pull-right"><i class="fa fa-hourglass-o"></i></span>
+                        <div class="clearfix"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+
+
+                <div class="col-lg-3 col-md-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-xs-3">
+                          <i class="fa fa-hourglass-2 fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                          <div class="huge">8</div>
+                          <div>Graduate</div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="#">
+                      <div class="panel-footer">
+                        <span class="pull-left">5 - 8 sets</span>
+                        <span class="pull-right"><i class="fa fa-hourglass-2"></i></span>
+                        <div class="clearfix"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+
+
+                <div class="col-lg-3 col-md-6">
+                  <div class="panel panel-success ">
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-xs-3">
+                          <i class="fa fa-hourglass-1 fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                          <div class="huge">12</div>
+                          <div>Master</div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="#">
+                      <div class="panel-footer">
+                        <span class="pull-left">9 - 12 sets</span>
+                        <span class="pull-right"><i class="fa fa-hourglass-1"></i></span>
+                        <div class="clearfix"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+
+
+                <div class="col-lg-3 col-md-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-xs-3">
+                          <i class="fa fa-hourglass fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                          <div class="huge">16</div>
+                          <div>Doctor</div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="#">
+                      <div class="panel-footer">
+                        <span class="pull-left">13 - 16 sets</span>
+                        <span class="pull-right"><i class="fa fa-hourglass"></i></span>
+                        <div class="clearfix"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+            <!--end panel body-->
+          </div>
+          <!--end panel-->
+        </div>
+        <!--end col-->
+      </div>
+      <!--end row-->
+
+      <!--CUSTOM-->
+      <div class="row text-center">
+
+        <div class="col-lg-12">
+
+          <div class="panel panel-danger">
+
+            <!--begin panel-heading-->
+            <div class="panel-heading clickable">
+
+              <span class="pull-left clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+
+              <h3 class="panel-title">CUSTOM</h3>
+
+              <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+
+            </div>
+            <!--end panel-heading-->
+
+            <!--begin panel-body-->
+            <div class="panel-body ">
+              <div class="row test-center">
+
+                <div class="col-lg-3">
+                  <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                      <h3 class="panel-title">NUMBER OF SETS</h3>
+                    </div>
+                    <div class="panel-body">
+
+                      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+
+                        <div class="btn-group" role="group">
+                          <button type="button" class="btn btn-success btn-lg">
+                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                          </button>
+                        </div>
+
+                        <div class="btn-group" role="group">
+                          <button class="btn btn-danger disabled btn-lg" type="button">
+                            <span class="badge">4</span>
+                          </button>
+                        </div>
+
+                        <div class="btn-group" role="group">
+                          <button type="button" class="btn btn-success btn-lg">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                          </button>
+                        </div>
+
+
+                      </div>
+                      <!--end button group justified-->
+
+                    </div>
+                    <!--end panel body-->
+                  </div>
+                </div>
+
+                <!--begin col-->
+                <div class="col-lg-3">
+                  <div class="panel panel-default">
+
+                    <div class="panel-heading text-center">
+                      <h3 class="panel-title">LENGTH OF SESSION</h3>
+                    </div>
+
+                    <div class="panel-body">
+
+                      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+
+                        <div class="btn-group" role="group">
+                          <button type="button" class="btn btn-success btn-lg">
+                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                          </button>
+                        </div>
+
+                        <div class="btn-group" role="group">
+                          <button class="btn btn-danger disabled btn-lg" type="button">
+                            <span class="badge">4</span>
+                          </button>
+                        </div>
+
+                        <div class="btn-group" role="group">
+                          <button type="button" class="btn btn-success btn-lg">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                          </button>
+                        </div>
+
+                      </div>
+                      <!--end button group justified-->
+
+                    </div>
+                    <!--end panel body-->
+                  </div>
+                  <!--end panel-->
+                </div>
+                <!--end col-->
+
+                <!--begin col-->
+                <div class="col-lg-3">
+                  <div class="panel panel-default">
+
+                    <div class="panel-heading text-center">
+                      <h3 class="panel-title">BREAK BETWEEN SESSIONS</h3>
+                    </div>
+
+                    <div class="panel-body">
+
+                      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+
+                        <div class="btn-group" role="group">
+                          <button type="button" class="btn btn-success btn-lg">
+                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                          </button>
+                        </div>
+
+                        <div class="btn-group" role="group">
+                          <button class="btn btn-danger disabled btn-lg" type="button">
+                            <span class="badge">4</span>
+                          </button>
+                        </div>
+
+                        <div class="btn-group" role="group">
+                          <button type="button" class="btn btn-success btn-lg">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                          </button>
+                        </div>
+
+                      </div>
+                      <!--end button group justified-->
+
+                    </div>
+                    <!--end panel body-->
+                  </div>
+                  <!--end panel-->
+                </div>
+                <!--end col-->
+
+
+                <!--begin col-->
+                <div class="col-lg-3">
+                  <!--begin panel-default-->
+                  <div class="panel panel-default">
+
+                    <!--begin panel-heading-->
+                    <div class="panel-heading text-center">
+                      <h3 class="panel-title">BREAK BETWEEN SETS</h3>
+                    </div>
+                    <!--end panel heading-->
+
+                    <!--begin panel-body-->
+                    <div class="panel-body">
+
+                      <!--begin btn-group-->
+                      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+
+                        <div class="btn-group" role="group">
+                          <button type="button" class="btn btn-success btn-lg">
+                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                          </button>
+                        </div>
+
+                        <div class="btn-group" role="group">
+                          <button class="btn btn-danger disabled btn-lg" type="button">
+                            <span class="badge">4</span>
+                          </button>
+                        </div>
+
+                        <div class="btn-group" role="group">
+                          <button type="button" class="btn btn-success btn-lg">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                          </button>
+                        </div>
+
+                      </div>
+                      <!--end button group justified-->
+
+                    </div>
+                    <!--end panel body-->
+
+                  </div>
+                  <!--end panel default-->
+                </div>
+                <!--end column-->
+
+              </div>
+              <!-- /.row -->
+            </div>
+            <!--end panel-body-->
+          </div>
+          <!--end panel-->
+        </div>
+        <!--end col-->
+      </div>
+      <!-- /.row -->
+
+
+
+      <!--begin row-->
+      <div class="row">
+
+        <!--begin col-->
+        <div class="col-lg-12 text-center">
+
+          <!--begin alert-->
+          <div class="alert alert-danger alert-dismissable">
+
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+            <i class="fa fa-info-circle"></i>
+            <strong>Want to know more about Pomodoro?</strong> Check out <a href="https://en.wikipedia.org/wiki/Time_management#Pomodoro" class="alert-link" target="_blank">Wikipedia </a> for additional info!
+
+          </div>
+          <!--end alert-->
+        </div>
+        <!--end column-->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+  </div>
+  <!--end container fluid-->
+
+
+  <!--begin FOOTER container-->
+  <div class="container ">
+
+    <!--begin FOOTER nav-->
+    <div class="footer">
+
+      <a href="http://www.mobilecreature.com/#" target="_blank">
+        <span class="glyphicon glyphicon-home" aria-hidden="true">
+        </span>
+      </a>
+
+      <a href="http://www.mobilecreature.com/#about" target="_blank">
+        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+      </a>
+
+      <a href="http://www.mobilecreature.com/#portfolio" target="_blank">
+        <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+      </a>
+
+      <a href="http://www.mobilecreature.com/#contact" target="_blank">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      </a>
+
+    </div>
+    <!--end FOOTER nav-->
+
+    <!--begin FOOTER copyright-->
+    <div>
+
+      <p id="footer">Copyright © mobileCreature 2015 -
+        <script>
+          document.write(new Date().getFullYear());
+        </script>. All Rights Reserved.
+      </p>
+
+    </div>
+    <!--end FOOTER copyright-->
+
+  </div>
+  <!--end FOOTER container-->
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <!-- <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> -->
+  <script src="local/js/jquery/jquery-2.1.4.min.js"></script>
+
+  <!-- Latest compiled and minified Bootstrap JavaScript -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+  <script src="local/js/bootstrap/bootstrap.min.js"></script>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+
+  <!--jQuery Plugin Simple Timer-->
+  <!-- <script src="http://cdn.mobilecreature.com/pomodoro/javascript/jquery.countdown.min.js"></script> -->
+  <script src="local/js/simpletimer/jquery.countdown.min.js"></script>
+
+  <!--Ion Sound Plugin-->
+  <!-- <script src="http://cdn.mobilecreature.com/pomodoro/javascript/ion.sound.min.js"></script> -->
+  <script src="local/js/ionsound/ion.sound.min.js"></script>
+
+</body>
+<html>
