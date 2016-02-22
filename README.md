@@ -2,7 +2,7 @@
 --------------------------------
 #### A FreeCodeCamp Project.
 
-[mobileCreature Web Design Studio](http://gjsmith3rd.github.io/)
+[mobileCreature Web Design Studio](http://mobilecreature.github.io/)
 --------------------------------
 A MobileCreature and Gilbert Smith project.
 
