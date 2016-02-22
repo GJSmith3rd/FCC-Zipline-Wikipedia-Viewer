@@ -1,75 +1,8 @@
 //@import url(https://fonts.googleapis.com/css?family=Petrona|Orbitron:400,500,700,900);
 
-/* orbitron-regular - latin */
-@font-face {
-  font-family: 'Orbitron';
-  font-style: normal;
-  font-weight: 400;
-  src: url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local('Orbitron-Light'), local('Orbitron-Regular'),
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-regular.svg#Orbitron') format('svg'); /* Legacy iOS */
-}
-/* orbitron-500 - latin */
-@font-face {
-  font-family: 'Orbitron';
-  font-style: normal;
-  font-weight: 500;
-  src: url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-500.eot'); /* IE9 Compat Modes */
-  src: local('Orbitron-Medium'),
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-500.woff') format('woff'), /* Modern Browsers */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-500.svg#Orbitron') format('svg'); /* Legacy iOS */
-}
-/* orbitron-700 - latin */
-@font-face {
-  font-family: 'Orbitron';
-  font-style: normal;
-  font-weight: 700;
-  src: url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-700.eot'); /* IE9 Compat Modes */
-  src: local('Orbitron-Bold'),
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-700.woff') format('woff'), /* Modern Browsers */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-700.svg#Orbitron') format('svg'); /* Legacy iOS */
-}
-/* orbitron-900 - latin */
-@font-face {
-  font-family: 'Orbitron';
-  font-style: normal;
-  font-weight: 900;
-  src: url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-900.eot'); /* IE9 Compat Modes */
-  src: local('Orbitron-Black'),
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-900.woff') format('woff'), /* Modern Browsers */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-900.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('local/fonts/google/orbitron-v7-latin/orbitron-v7-latin-900.svg#Orbitron') format('svg'); /* Legacy iOS */
-}
-
-/* petrona-regular - latin */
-@font-face {
-  font-family: 'Petrona';
-  font-style: normal;
-  font-weight: 400;
-  src: url(local/fonts/google/petrona-v5-latin/petrona-v5-latin-regular.eot);
-  /* IE9 Compat Modes */
-  src:/* IE6-IE8 *//* Super Modern Browsers */
-  /* Modern Browsers */
-  /* Safari, Android, iOS */
-  local('Petrona Regular'), local('Petrona-Regular'), url('local/fonts/google/petrona-v5-latin/petrona-v5-latin-regular.eot?#iefix') format('embedded-opentype'),url('local/fonts/google/petrona-v5-latin/petrona-v5-latin-regular.woff2') format('woff2'),url('local/fonts/google/petrona-v5-latin/petrona-v5-latin-regular.woff') format('woff'),url('local/fonts/google/petrona-v5-latin/petrona-v5-latin-regular.ttf') format('truetype'),url('local/fonts/google/petrona-v5-latin/petrona-v5-latin-regular.svg#Petrona') format('svg');
-  /* Legacy iOS */
-}
-
-// @mainFont: ~"'Orbitron', serif;";
-// @accentFont: ~"'Petrona', sans-serif;";
-// @textFont: ~"'Open Sans', sans-serif;";
+@mainFont: ~"'Orbitron', serif;";
+@accentFont: ~"'Petrona', sans-serif;";
+@textFont: ~"'Open Sans', sans-serif;";
 
 @h1Color: firebrick;
 @h1ShadowColor: forestgreen;
@@ -77,31 +10,39 @@
 @h2ShadowColor: darkred;
 @h3Color: darkgreen;
 @h3ShadowColor: limegreen;
+
 @navColor: forestgreen;
 @navColorHover: firebrick;
 @navBackgroundColor: #E7E7E7;
 @navBackgroundColorHover: lightgrey;
+
 @textColor: orange;
 @textShadowColor: black;
+
 @shadowColor: darkgrey;
 @accentShadowColor: darkred;
+
 @greyShadow: rgba(0, 0, 0, 0.3);
 @blackShadow: rgba(0, 0, 0, 0.7);
+
 @h1-font-size--xlarge: 76px;
 @h1-font-size--large: @h1-font-size--xlarge - 10;
 @h1-font-size--medium: @h1-font-size--large - 10;
 @h1-font-size--small: @h1-font-size--medium - 10;
 @h1-font-size--xsmall: @h1-font-size--small - 10;
+
 @h2-font-size--xlarge: 66px;
 @h2-font-size--large: @h2-font-size--xlarge - 10;
 @h2-font-size--medium: @h2-font-size--large - 10;
 @h2-font-size--small: @h2-font-size--medium - 10;
 @h2-font-size--xsmall: @h2-font-size--small - 10;
+
 @h3-font-size--xlarge: 66px;
 @h3-font-size--large: @h3-font-size--xlarge - 5;
 @h3-font-size--medium: @h3-font-size--large - 5;
 @h3-font-size--small: @h3-font-size--medium - 5;
 @h3-font-size--xsmall: @h3-font-size--small - 5;
+
 @screen-xlg-min: 1200px;
 @screen-lg-max: 1199px;
 @screen-lg-min: 980px;
@@ -110,28 +51,7 @@
 @screen-sm-max: 767px;
 @screen-sm-min: 481px;
 @screen-xs-max: 480px;
-h1 {
-  font-family: Orbitron;
-  font-weight: 900;
-  color: @h1Color !important;
-  text-shadow: 2px 1px 2px @h1ShadowColor;
-  &:span {
-    &:img {
-      width: 50%;
-    }
-  }
-}
-h2 {
-  font-family: Petrona;
-  color: @h2Color;
-  text-shadow: 2px 1px 2px @h2ShadowColor;
-}
-h3 {
-  font-family: Orbitron;
-  font-weight: 700;
-  color: @h3Color;
-  text-shadow: 2px 1px 2px @h3ShadowColor;
-}
+
 @media only screen and (min-width: @screen-xlg-min) {
   h1 {
     font-size: @h1-font-size--xlarge;
@@ -187,12 +107,6 @@ h3 {
     font-size: @h3-font-size--xsmall;
   }
 }
-p {
-  font-family: @textFont;
-  font-weight: 600;
-  font-size: 20px;
-  color: @textColor;
-}
 #navbar {
   background-color: @navBackgroundColor;
   filter:none;
@@ -220,6 +134,35 @@ ul.nav li a {
     color: @navColorHover !important;
     background-color: lightgrey !important;
   }
+}
+
+h1 {
+  font-family: Orbitron;
+  font-weight: 900;
+  color: @h1Color !important;
+  text-shadow: 2px 1px 2px @h1ShadowColor;
+  &:span {
+    &:img {
+      width: 50%;
+    }
+  }
+}
+h2 {
+  font-family: Petrona;
+  color: @h2Color;
+  text-shadow: 2px 1px 2px @h2ShadowColor;
+}
+h3 {
+  font-family: Orbitron;
+  font-weight: 700;
+  color: @h3Color;
+  text-shadow: 2px 1px 2px @h3ShadowColor;
+}
+p {
+  font-family: @textFont;
+  font-weight: 600;
+  font-size: 20px;
+  color: @textColor;
 }
 .footer {
   padding-top: 25px;
