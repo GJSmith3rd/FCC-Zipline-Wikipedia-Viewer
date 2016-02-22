@@ -1,10 +1,11 @@
-# [FreeCodeCamp Zipline Project - Wikipedia Viewer](http://codepen.io/GJSmith3rd/full/WrqPgO)
+# [Wikipedia Viewer](http://codepen.io/GJSmith3rd/full/WrqPgO)
 --------------------------------
+#### A FreeCodeCamp Project.
 
 [mobileCreature Web Design Studio](http://gjsmith3rd.github.io/)
 --------------------------------
-MobileCreature and Gilbert Smith project.
+A MobileCreature and Gilbert Smith project.
 
-A [CodePen - WikiPedia Viewer](http://codepen.io/GJSmith3rd/full/WrqPgO/) and [FreeCodeCamp - GJSmith3rd](http://freecodecamp.com/gjsmith3rd), Project by [CodePen - Gilbert Smith](http://codepen.io/GJSmith3rd) on [CodePen](http://codepen.io/).
+Hosted on [CodePen - WikiPedia Viewer](http://codepen.io/GJSmith3rd/full/WrqPgO/) and deveoloped by [FreeCodeCamp - GJSmith3rd](http://freecodecamp.com/gjsmith3rd)
 
-[FreeCodeCamp](http://freecodecamp.com).
+
