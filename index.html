@@ -36,6 +36,9 @@
 
   <script type="text/javascript" src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 
+  <!--jQuery UI-->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
   <link rel="stylesheet" href="styles.css" />
 
 
@@ -112,65 +115,88 @@
 
     <div class="jumbotron jumbotron-success text-center">
 
+
+
       <h1 id="head1">Wikipedia Search</h1>
+      <h2>Query or Random</h2>
 
+      <form>
+
+        <input id="query" name="autocomplete" type="text" class="form-control" placeholder="Type Query or Blank for Random Search...">
+
+        <!--<div class="ui-widget" style="margin-top:2em; font-family:Arial">
+          Result:
+          <div id="log" style="height: 200px; width: 300px; overflow: auto;" class="ui-widget-content"></div>
+        </div>-->
+
+      </form>
+
+      <div class="ui-widget" style="margin-top:2em; font-family:Arial">
+        Result:
+        <div id="log" style="height: 200px; width: 300px; overflow: auto;" class="ui-widget-content"></div>
+      </div>
+
+      <!--end jumbotron -->
     </div>
-    <!--end jumbotron -->
-  </div>
-  <!--container-fluid -->
+    <!--container-fluid -->
 
 
-  <!--begin FOOTER container-->
-  <div class="container ">
+    <!--begin FOOTER container-->
+    <div class="container ">
 
-    <!--begin FOOTER nav-->
-    <div class="footer">
+      <!--begin FOOTER nav-->
+      <div class="footer">
 
-      <a href="http://www.mobilecreature.com/#" target="_blank">
-        <span class="glyphicon glyphicon-home" aria-hidden="true">
+        <a href="http://www.mobilecreature.com/#" target="_blank">
+          <span class="glyphicon glyphicon-home" aria-hidden="true">
         </span>
-      </a>
+        </a>
 
-      <a href="http://www.mobilecreature.com/#about" target="_blank">
-        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-      </a>
+        <a href="http://www.mobilecreature.com/#about" target="_blank">
+          <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+        </a>
 
-      <a href="http://www.mobilecreature.com/#portfolio" target="_blank">
-        <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
-      </a>
+        <a href="http://www.mobilecreature.com/#portfolio" target="_blank">
+          <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+        </a>
 
-      <a href="http://www.mobilecreature.com/#contact" target="_blank">
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-      </a>
+        <a href="http://www.mobilecreature.com/#contact" target="_blank">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        </a>
+
+      </div>
+      <!--end FOOTER nav-->
+
+      <!--begin FOOTER copyright-->
+      <div>
+
+        <p id="footer">Copyright © mobileCreature 2015 -
+          <script>
+            document.write(new Date().getFullYear());
+          </script>. All Rights Reserved.
+        </p>
+
+      </div>
+      <!--end FOOTER copyright-->
 
     </div>
-    <!--end FOOTER nav-->
+    <!--end FOOTER container-->
 
-    <!--begin FOOTER copyright-->
-    <div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-      <p id="footer">Copyright © mobileCreature 2015 -
-        <script>
-          document.write(new Date().getFullYear());
-        </script>. All Rights Reserved.
-      </p>
+    <!--jQuery UI-->
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-    </div>
-    <!--end FOOTER copyright-->
+
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
 
   </div>
-  <!--end FOOTER container-->
-
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-
-
-  <!-- Latest compiled and minified Bootstrap JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
-  <!-- Custom Script -->
-  <script src="script.js"></script>
 
 </body>
 
