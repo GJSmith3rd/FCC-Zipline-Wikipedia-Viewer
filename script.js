@@ -44,12 +44,15 @@ $(document).ready(function () {
         // $(this).removeClass('ui-corner-top').addClass('ui-corner-all');
       }
     });
+
     //*** Retrieve article list from Wikipedia
     function getArticleList(autoSelect) {
       console.log(autoSelect.item.label);
 
       var searchUrl = 'http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&callback=?&page=' + autoSelect.item.label;
+
       console.log(autoSelect.item.label);
+
       $.ajax({
 
         type: 'GET',
@@ -58,7 +61,12 @@ $(document).ready(function () {
         async: false,
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
+
           console.log(data);
+          console.log(data.parse.text);
+
+          var returned = data.parse.text;
+          $(returned).appendTo('#result');
         },
         error: function (errorMessage) {
         }
