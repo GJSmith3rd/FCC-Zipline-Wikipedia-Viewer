@@ -108,7 +108,7 @@ function serve() {
 
     var nodeOptions = {
         script: config.nodeServer,
-        delayTime: 15,
+        delayTime: 7,
         env: {
             'PORT': port,
             'NODE_ENV': 'dev'
