@@ -45,7 +45,7 @@ $(function () {
 
   });
 
-  //*** Retrieve article list from Wikipedia
+  //*** Determine selected or random
   function getSelected(autoSelect) {
 
     if (autoSelect.item.label === '***Random Search***') {
@@ -56,18 +56,19 @@ $(function () {
 
     } else {
 
-      selectedUrl = 'http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&formatversion=2&callback=?&mobileformat=1&page=' + autoSelect.item.label;
+      selectedUrl = 'http://en.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&prop=text&callback=?&page=' + autoSelect.item.label;
       getRequest(selectedUrl);
     }
 
   }
 
-  function getRequest(selectedUrl) {
+//***
+  function getRequest(getUrl) {
 
     $.ajax({
 
       type: 'GET',
-      url: selectedUrl,
+      url: getUrl,
       contentType: 'application/json; charset=utf-8',
       async: false,
       dataType: 'json',
@@ -121,7 +122,7 @@ $(function () {
         console.log(data);
         console.log(data.query.random[0].title);
 
-        selectedUrl = 'http://en.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&prop=text&callback=?&mobileformat=1&page=' + data.query.random[0].title;
+        selectedUrl = 'http://en.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&prop=text&callback=?&page=' + data.query.random[0].title;
 
         getRequest(selectedUrl);
 
