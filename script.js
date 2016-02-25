@@ -2,7 +2,8 @@
 
 // $(document).ready(function () {
 
-var searchUrl = '';
+var selectedUrl = '';
+var randomUrl = '';
 
 $(function () {
 
@@ -25,15 +26,17 @@ $(function () {
         success: function (data) {
 
           console.log(data);
+          data[1].unshift('***Random Search***');
           response(data[1]);
 
-        }
+        },
+
       });
     },
     minLength: 3,
     select: function (event, ui) {
 
-      getArticleList(ui);
+      getSelected(ui);
 
       log(ui.item ?
         'Selected: ' + ui.item.label :
@@ -48,28 +51,56 @@ $(function () {
   });
 
   //*** Retrieve article list from Wikipedia
-  function getArticleList(autoSelect) {
+  function getSelected(autoSelect) {
     console.log(autoSelect.item.label);
 
-    if (autoSelect.item.label === '') {
+    if (autoSelect.item.label === '***Random Search***') {
 
-      searchUrl = 'http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&formatversion=2&callback=?&page=' + this.value;
+      randomUrl = 'http://en.wikipedia.org/w/api.php?action=query&formatversion=2&list=random&format=json&rnnamespace=0&rnlimit=1&callback=?';
 
       console.log('random:' + autoSelect.item.label);
+      getRequestRandom(randomUrl);
 
     } else {
 
-      //var searchUrl = 'http://en.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&prop=text&section=0&section=0&callback=?&page=' + autoSelect.item.label;
-
-      searchUrl = 'http://en.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&prop=text&callback=?&page=' + autoSelect.item.label;
-
-      console.log('opensearch: ' + autoSelect.item.label);
+      selectedUrl = 'http://en.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&prop=text&callback=?&page=' + autoSelect.item.label;
+      getRequest(selectedUrl);
     }
+
+  }
+
+  function getRequestRandom(randomUrl) {
 
     $.ajax({
 
       type: 'GET',
-      url: searchUrl,
+      url: randomUrl,
+      contentType: 'application/json; charset=utf-8',
+      async: false,
+      dataType: 'json',
+      success: function (data) {
+
+        console.log(data);
+        console.log(data.query.random[0].title);
+
+        selectedUrl = 'http://en.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&prop=text&callback=?&page=' + data.query.random[0].title;
+
+        getRequest(selectedUrl);
+
+      },
+      error: function (errorMessage) {
+      }
+
+    });
+
+  }
+
+  function getRequest(selectedUrl) {
+
+    $.ajax({
+
+      type: 'GET',
+      url: selectedUrl,
       contentType: 'application/json; charset=utf-8',
       async: false,
       dataType: 'json',
@@ -84,9 +115,6 @@ $(function () {
             this.href.search('/wiki/') > -1 ||
             this.href.search('/w/') > -1
             ) {
-
-            console.log(this.href);
-            console.log(location.href);
 
             $(this).attr('target', '_newtab'); // opens a new tab on click
 
@@ -111,6 +139,7 @@ $(function () {
     });
 
   }
+
 });
 
 // });
